@@ -143,4 +143,4 @@ result = restriction_bypass.bypass_restrictions(model, "Your prompt here")
 
 ---
 
-##Crafted By: Eng.Mazin Yahia
+## Crafted By: Eng.Mazin Yahia
