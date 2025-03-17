@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python package
+name: AI Tool CI/CD Pipeline
 
 on:
   push:
@@ -11,12 +11,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10"]
 
     steps:
     - uses: actions/checkout@v4
@@ -24,17 +23,86 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+    
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
+        # Install both regular and enhanced requirements
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f enhanced_requirements.txt ]; then pip install -r enhanced_requirements.txt; fi
+    
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        # exit-zero treats all errors as warnings
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+    
+    - name: Run unit tests
       run: |
-        pytest
+        # Create tests directory if it doesn't exist
+        mkdir -p tests
+        # Run pytest on all test files
+        pytest tests/
+    
+    - name: Check API connections
+      run: |
+        # Simple validation of API connection modules
+        python -c "import api_connections; print('API connections module validated')"
+    
+    - name: Validate frequency generator
+      run: |
+        # Validate the frequency generator module
+        python -c "import frequency_generator; print('Frequency generator module validated')"
+        # Validate enhanced frequency generator if it exists
+        if [ -f enhanced_frequency_generator.py ]; then
+          python -c "import enhanced_frequency_generator; print('Enhanced frequency generator module validated')"
+        fi
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    
+    - name: Install deployment dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flask gunicorn
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f enhanced_requirements.txt ]; then pip install -r enhanced_requirements.txt; fi
+    
+    - name: Prepare deployment package
+      run: |
+        # Create deployment directory
+        mkdir -p deploy
+        # Copy necessary files
+        cp -r *.py templates static deploy/
+        cp -r requirements.txt enhanced_requirements.txt deploy/ || true
+        # Create a simple gunicorn config
+        echo "bind = '0.0.0.0:5000'" > deploy/gunicorn_config.py
+        echo "workers = 4" >> deploy/gunicorn_config.py
+        echo "timeout = 120" >> deploy/gunicorn_config.py
+    
+    - name: Create deployment artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ai-tool-deployment
+        path: deploy/
+    
+    - name: Deploy to server
+      run: |
+        echo "Deployment would happen here in a production environment"
+        echo "For example, you could use SSH to deploy to your server:"
+        echo "scp -r deploy/* user@your-server:/path/to/deployment/"
+        # This is a placeholder - replace with your actual deployment commands
+        # For example, you might use AWS, Azure, or GCP deployment tools
+
