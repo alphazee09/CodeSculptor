@@ -1,6 +1,7 @@
 ---
 
 ## Workflows
+[![CodeSculptor CI/CD Pipeline](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml/badge.svg)](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml) 
 [![CodeSculptor CI/CD Pipeline](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml/badge.svg)](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml)
 
 ---
