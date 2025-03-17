@@ -132,6 +132,18 @@ result = restriction_bypass.bypass_restrictions(model, "Your prompt here")
 - Consider implementing rate limiting to prevent API abuse
 - Implement proper error handling and logging for security events
 
+---
+
+Crafted By: Eng.Mazin Yahia
+
+
+  
+
+
+
+
+
+
 ## Future Enhancements
 
 - Add support for more AI models
