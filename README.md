@@ -1,146 +1,300 @@
+# CodeSculptor
 
-## Project Overview
+## Table of Contents
+1. [Introduction](#introduction)
+2. [New Features](#new-features)
+   - [Web Interface](#web-interface)
+   - [Audio Output](#audio-output)
+3. [System Architecture](#system-architecture)
+4. [Installation Guide](#installation-guide)
+5. [Component Documentation](#component-documentation)
+   - [Web Application](#web-application)
+   - [Enhanced Frequency Generator](#enhanced-frequency-generator)
+   - [Audio Generation and Visualization](#audio-generation-and-visualization)
+6. [Usage Guide](#usage-guide)
+7. [Technical Details](#technical-details)
+8. [Future Enhancements](#future-enhancements)
 
-This AI tool is a comprehensive integration platform that combines multiple powerful AI models, social media platforms, news analysis capabilities, and a unique frequency generator. The tool is designed to provide advanced analytics, predictive capabilities, and enhanced AI model interactions.
+## Introduction
 
-## Key Features
+The Enhanced AI Tool builds upon the original implementation by adding a web-based user interface and audio output capabilities for the frequency generator. This document covers the new features, installation process, and usage instructions for the enhanced version.
 
-1. **AI Model Integration**
-   - Connects to multiple AI models including Manus AI, DeepSeek, and OpenAI
-   - Provides a unified interface for interacting with different AI models
-   - Supports model-specific parameters and capabilities
+## New Features
 
-2. **Social Media Integration**
-   - Connects to major social media platforms (Twitter, Facebook, Instagram, TikTok, YouTube, LinkedIn)
-   - Retrieves user profiles, posts, and trending content
-   - Manages multiple social media accounts
+### Web Interface
 
-3. **News Analysis Engine**
-   - Fetches news from various sources
-   - Analyzes trending topics across news and social media
-   - Uses an advanced algorithm to predict potentially dangerous events
-   - Provides risk scores and recommended actions
+The AI Tool now features a comprehensive web-based interface with the following improvements:
 
-4. **Frequency Generator**
-   - Converts text prompts into frequency patterns
-   - Uses frequencies to communicate with AI models
-   - Provides capabilities to bypass model restrictions and enhance compatibility
+1. **Responsive Design**
+   - Bootstrap-based responsive layout
+   - Mobile and desktop compatibility
+   - Dark/light theme support
 
-5. **Simplified User Interface**
-   - Dashboard for overall system monitoring
-   - Dedicated views for social media, news, and frequency generation
-   - Clean, intuitive design for easy navigation
+2. **Interactive Dashboard**
+   - Tab-based navigation for different features
+   - Real-time updates and feedback
+   - Improved user experience
+
+3. **Visual Feedback**
+   - Loading indicators for asynchronous operations
+   - Success/error notifications
+   - Interactive controls
+
+### Audio Output
+
+The frequency generator has been enhanced with audio capabilities:
+
+1. **Audio Generation**
+   - Converts text-generated frequencies to audio waveforms
+   - Supports various audio parameters (duration, sample rate)
+   - Implements ADSR envelope for natural sound shaping
+
+2. **Audio Visualization**
+   - Waveform display showing amplitude over time
+   - Frequency spectrum visualization
+   - Spectrogram for time-frequency analysis
+
+3. **Audio Controls**
+   - Play/pause functionality
+   - Download option for generated audio
+   - Visualization type selection
 
 ## System Architecture
 
-The system is built with a modular architecture that separates concerns and allows for easy extension:
+The enhanced system architecture includes the following components:
 
-- **Core Framework**: Configuration management and application entry point
-- **AI Model Connectors**: Base connector class with model-specific implementations
-- **Social Media Integration**: Platform-specific connectors with a unified interface
-- **News Analysis Engine**: Components for fetching, analyzing, and predicting based on news data
-- **Frequency Generator**: Components for converting text to frequencies and communicating with AI models
-- **User Interface**: Dashboard and specialized views for different features
+```
+Enhanced AI Tool
+├── app.py                         # Flask web application
+├── enhanced_frequency_generator.py # Enhanced frequency generator with audio
+├── templates/                     # HTML templates
+│   └── index.html                 # Main dashboard template
+├── static/                        # Static assets
+│   ├── css/                       # CSS stylesheets
+│   │   └── style.css              # Main stylesheet
+│   └── js/                        # JavaScript files
+│       └── main.js                # Main JavaScript file
+└── original_components/           # Original AI Tool components
+    ├── api_connections.py         # API connection framework
+    ├── social_media_integration.py # Social media integration
+    ├── news_analysis.py           # News analysis engine
+    ├── frequency_generator.py     # Original frequency generator
+    └── main.py                    # Original main application
+```
 
-## Installation
+## Installation Guide
 
-1. Clone the repository
+### Prerequisites
+
+- Python 3.8 or higher
+- Internet connection for API access
+- Web browser (Chrome, Firefox, Safari, or Edge)
+- API keys for the services you want to use
+
+### Installation Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/enhanced-ai-tool.git
+   cd enhanced-ai-tool
+   ```
+
 2. Install dependencies:
-   ```
-   pip install requests
-   ```
-3. Configure API keys in the `config.py` file
-4. Run the application:
-   ```
-   python main.py
+   ```bash
+   pip install -r requirements.txt
    ```
 
-## Configuration
+3. Configure API keys:
+   - Create a `config.json` file in the root directory
+   - Add your API keys following the structure in the original documentation
 
-The system uses a centralized configuration system that stores:
-- API keys for AI models
-- API keys for social media platforms
-- API keys for news services
-- Application settings
+4. Run the web application:
+   ```bash
+   python app.py
+   ```
 
-Configuration can be loaded from and saved to JSON files for persistence.
+5. Access the web interface:
+   - Open your browser and navigate to `http://localhost:5000`
+
+## Component Documentation
+
+### Web Application
+
+The web application is built with Flask and provides the following endpoints:
+
+#### Main Routes
+
+- `GET /`: Renders the main dashboard page
+- `POST /api/generate-frequency`: Generates a frequency pattern from text
+- `POST /api/generate-audio`: Generates audio from text
+- `POST /api/download-audio`: Downloads generated audio as a WAV file
+- `POST /api/ai-models`: Communicates with AI models
+- `POST /api/social-media/search`: Searches social media
+- `POST /api/news/analyze`: Analyzes news and trends
+- `POST /api/news/predict`: Predicts events based on news and trends
+
+#### Frontend Components
+
+The frontend is built with HTML, CSS, and JavaScript, using Bootstrap for responsive design:
+
+- **HTML Templates**: Define the structure of the web interface
+- **CSS Styles**: Provide styling for the dashboard and components
+- **JavaScript**: Handles user interactions, API calls, and audio visualization
+
+### Enhanced Frequency Generator
+
+The enhanced frequency generator extends the original implementation with audio capabilities:
+
+#### Key Classes
+
+- `TextToFrequency`: Converts text to frequency patterns (enhanced)
+- `AudioGenerator`: Generates audio from frequency patterns (new)
+- `FrequencyVisualizer`: Visualizes frequency patterns and audio (new)
+- `ModelCommunicator`: Uses frequencies to communicate with AI models (enhanced)
+- `RestrictionBypass`: Handles bypassing restrictions in AI models (enhanced)
+- `FrequencyGenerator`: Main class for the frequency generator module (enhanced)
+
+#### Audio Generation Process
+
+1. Text is converted to a frequency pattern using the `TextToFrequency` class
+2. The frequency pattern is used to generate audio using the `AudioGenerator` class
+3. The audio can be visualized using the `FrequencyVisualizer` class
+4. The audio can be played in the browser or downloaded as a WAV file
+
+### Audio Generation and Visualization
+
+The audio generation and visualization components provide the following features:
+
+#### Audio Generation
+
+- **Waveform Synthesis**: Generates audio waveforms from frequency patterns
+- **Harmonic Generation**: Creates harmonics based on the base frequency
+- **Modulation**: Applies frequency modulation for more complex sounds
+- **Envelope Shaping**: Uses ADSR envelope for natural sound shaping
+
+#### Audio Visualization
+
+- **Waveform Display**: Shows amplitude over time
+- **Frequency Spectrum**: Shows frequency distribution
+- **Spectrogram**: Shows frequency content over time
 
 ## Usage Guide
 
-### Connecting to AI Models
+### Accessing the Web Interface
 
-```python
-# Create an AI model connector
-model = AIModelFactory.create_connector("manus")
+1. Start the web application:
+   ```bash
+   python app.py
+   ```
 
-# Generate a response
-response = model.generate_response("Your prompt here")
-```
+2. Open your browser and navigate to `http://localhost:5000`
 
-### Social Media Integration
+3. The dashboard will be displayed with tabs for different features
 
-```python
-# Create a social media connector
-twitter = SocialMediaFactory.create_connector("twitter")
+### Using the Frequency Generator with Audio
 
-# Get user profile
-profile = twitter.get_user_profile("username")
+1. Navigate to the "Frequency Generator" tab
 
-# Search for content
-results = twitter.search_content("search query")
-```
+2. Enter text in the input area
 
-### News Analysis
+3. Set the desired audio duration (in seconds)
 
-```python
-# Create news analysis components
-news_fetcher = NewsFetcher(Config.NEWS_API_KEYS)
-trend_analyzer = TrendAnalyzer(news_fetcher, social_media_factory)
-event_predictor = EventPredictor(trend_analyzer)
-algorithm = AdvancedAlgorithm(event_predictor)
+4. Click "Generate Frequency"
 
-# Analyze and predict events
-predictions = algorithm.analyze_and_predict(timeframe="week", confidence_threshold=0.8)
-```
+5. The frequency pattern will be displayed and audio will be generated
 
-### Frequency Generator
+6. Use the audio player controls to play the generated audio
 
-```python
-# Create frequency generator components
-text_to_frequency = TextToFrequency()
-model_communicator = ModelCommunicator(text_to_frequency)
-restriction_bypass = RestrictionBypass(model_communicator)
+7. Select different visualization types (waveform, spectrum, spectrogram) to visualize the audio
 
-# Generate frequency pattern
-pattern = text_to_frequency.generate_frequency_pattern("Your text here")
+8. Click "Download Audio" to download the generated audio as a WAV file
 
-# Bypass restrictions
-result = restriction_bypass.bypass_restrictions(model, "Your prompt here")
-```
+### Communicating with AI Models using Frequencies
 
-## Development Notes
+1. Navigate to the "Frequency Generator" tab
 
-- The system is designed to be extensible, allowing for easy addition of new AI models and social media platforms
-- The news analysis algorithm can be trained with historical data to improve prediction accuracy
-- The frequency generator uses a simplified mapping in this version but can be enhanced with more sophisticated algorithms
-- The user interface is framework-agnostic and can be implemented with various UI technologies
+2. Scroll down to the "Communicate with AI Model using Frequency" section
 
-## Security Considerations
+3. Select an AI model from the dropdown
 
-- API keys should be stored securely and not committed to version control
-- Social media account credentials should be encrypted
-- Consider implementing rate limiting to prevent API abuse
-- Implement proper error handling and logging for security events
+4. Enter a prompt in the text area
+
+5. Check "Bypass Restrictions" if needed
+
+6. Click "Communicate with Model"
+
+7. The model response will be displayed
+
+## Technical Details
+
+### Audio Generation
+
+The audio generation process uses the following techniques:
+
+1. **Frequency Pattern Generation**:
+   - Base frequency is derived from text characteristics
+   - Harmonics are generated based on mathematical relationships
+   - Modulation parameters are calculated for complex sounds
+   - ADSR envelope parameters are determined for natural sound shaping
+
+2. **Waveform Synthesis**:
+   - Time domain samples are generated using sine waves
+   - Harmonics are added with decreasing amplitudes
+   - Frequency modulation is applied if specified
+   - ADSR envelope is applied to shape the sound
+
+3. **Audio Format**:
+   - 44.1 kHz sample rate (CD quality)
+   - 16-bit PCM encoding
+   - Mono channel
+   - WAV file format for downloads
+
+### Visualization Techniques
+
+The visualization techniques include:
+
+1. **Waveform Visualization**:
+   - Plots amplitude over time
+   - Uses HTML5 Canvas for rendering
+   - Updates in real-time during playback
+
+2. **Frequency Spectrum Visualization**:
+   - Uses Fast Fourier Transform (FFT) to convert time domain to frequency domain
+   - Shows frequency distribution
+   - Color-coded by frequency
+
+3. **Spectrogram Visualization**:
+   - Shows frequency content over time
+   - Color intensity represents amplitude
+   - Scrolls horizontally during playback
 
 ## Future Enhancements
 
-- Add support for more AI models
-- Enhance the news analysis algorithm with machine learning
-- Improve the frequency generator with more advanced signal processing techniques
-- Add more visualization options to the user interface
-- Implement a plugin system for extending functionality
+1. **Advanced Audio Features**
+   - Multiple waveform types (square, triangle, sawtooth)
+   - More complex modulation options (AM, FM, PM)
+   - Effects processing (reverb, delay, etc.)
+   - Multi-track layering
 
+2. **Enhanced Visualization**
+   - 3D visualizations
+   - VR/AR integration for immersive audio experience
+   - Real-time frequency analysis of microphone input
 
----
+3. **AI Integration Improvements**
+   - More sophisticated frequency-based communication
+   - Learning algorithms to optimize frequency patterns
+   - Personalized frequency profiles
 
-## Crafted By: Eng.Mazin Yahia
+4. **Mobile Application**
+   - Native mobile apps for iOS and Android
+   - Offline audio generation
+   - Mobile-optimized interface
+  
+   ---
+
+   ## Crafted By : Mazin Yahia
+
+   ---
+
+   
