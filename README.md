@@ -328,7 +328,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Documentation
 
-For full documentation, visit our [documentation site](https://github.com/alphazee09/CodeSculptor).
+For full documentation, visit our [documentation](https://github.com/alphazee09/CodeSculptor).
 
 ---
 
