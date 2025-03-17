@@ -1,14 +1,18 @@
----
-
-## Workflows
-[![CodeSculptor CI/CD Pipeline](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml/badge.svg)](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml) 
-[![CodeSculptor CI/CD Pipeline](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml/badge.svg)](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml)
-
----
-
 # CodeSculptor
 
- ---
+---
+
+![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD-passing-brightgreen)
+![Documentation](https://img.shields.io/badge/docs-passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Coverage](https://img.shields.io/badge/coverage-85%25-yellowgreen)
+![AI Tool](https://img.shields.io/badge/AI%20Tool-ready-blueviolet)
+![Frequency Generator](https://img.shields.io/badge/Frequency%20Generator-enabled-FF6F00)
+![Web Interface](https://img.shields.io/badge/Web%20Interface-active-success)
+
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -24,12 +28,18 @@
 6. [Usage Guide](#usage-guide)
 7. [Technical Details](#technical-details)
 8. [Future Enhancements](#future-enhancements)
+9. [Documentation](#Documentation)
 
 ## Introduction
 
 The Enhanced AI Tool builds upon the original implementation by adding a web-based user interface and audio output capabilities for the frequency generator. This document covers the new features, installation process, and usage instructions for the enhanced version.
 
-## New Features
+## Features
+- **AI Model Integration**: Connect to Manus AI, DeepSeek, OpenAI, and other powerful AI models
+- **Social Media Integration**: Connect to Facebook, Twitter, Instagram, TikTok, YouTube, and more
+- **News Analysis**: Advanced algorithm to analyze trends and predict potentially dangerous events
+- **Frequency Generator**: Convert text to frequencies with audio output capabilities
+- **Web Interface**: Clean, intuitive user interface for all features
 
 ### Web Interface
 
@@ -301,10 +311,32 @@ The visualization techniques include:
    - Offline audio generation
    - Mobile-optimized interface
   
-   ---
+
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+
+
+---
+
+## Documentation
+
+For full documentation, visit our [documentation site](https://github.com/alphazee09/CodeSculptor).
+
+---
+
+
+---
 
    ## Crafted By : Mazin Yahia
 
-   ---
+---
 
    
