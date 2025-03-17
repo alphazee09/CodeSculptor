@@ -1,5 +1,7 @@
 # CodeSculptor
 
+[![AI Tool CI/CD Pipeline](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml/badge.svg)](https://github.com/alphazee09/CodeSculptor/actions/workflows/python-package.yml)
+ 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [New Features](#new-features)
