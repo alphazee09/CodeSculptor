@@ -132,18 +132,6 @@ result = restriction_bypass.bypass_restrictions(model, "Your prompt here")
 - Consider implementing rate limiting to prevent API abuse
 - Implement proper error handling and logging for security events
 
----
-
-Crafted By: Eng.Mazin Yahia
-
-
-  
-
-
-
-
-
-
 ## Future Enhancements
 
 - Add support for more AI models
@@ -151,3 +139,8 @@ Crafted By: Eng.Mazin Yahia
 - Improve the frequency generator with more advanced signal processing techniques
 - Add more visualization options to the user interface
 - Implement a plugin system for extending functionality
+
+
+---
+
+##Crafted By: Eng.Mazin Yahia
