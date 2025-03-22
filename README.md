@@ -335,7 +335,26 @@ For full documentation, visit our [documentation](https://github.com/alphazee09/
 
 ---
 
-   ## Crafted By : Mazin Yahia
+<h3 align="center">✨ Created & Crafted By: <a href="https://github.com/alphazee09">Eng. Mazin Yahia</a> ✨</h3>
+
+<p align="center">
+  <a href="https://github.com/alphazee09?tab=repositories">
+    <img src="https://img.shields.io/badge/View-My_Repositories-blue?style=for-the-badge&logo=github" alt="View Repositories"/>
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://mazinyahia.com">
+    <img src="https://img.shields.io/badge/Visit-My_Portfolio-green?style=for-the-badge&logo=google-chrome" alt="Visit Portfolio"/>
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Ubuntu+Slab&color=%237E3ACE&size=22&center=true&vCenter=true&width=500&duration=4000&pause=1000&lines=I’m+not+anti-social,+I’m+just+it+just+not+user-friendly." alt="Typing Animation"/>
+</p>
+      
+<p align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/7124/7124129.png" width="100" height="auto" alt="Sudan Flag"/>
+</p>
+
 
 ---
 
