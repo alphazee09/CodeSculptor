@@ -342,7 +342,7 @@ For full documentation, visit our [documentation](https://github.com/alphazee09/
     <img src="https://img.shields.io/badge/View-My_Repositories-blue?style=for-the-badge&logo=github" alt="View Repositories"/>
   </a>
   &nbsp;&nbsp;&nbsp;
-  <a href="https://mazinyahia.com">
+  <a href="https://mazinyahia.com/projects">
     <img src="https://img.shields.io/badge/Visit-My_Portfolio-green?style=for-the-badge&logo=google-chrome" alt="Visit Portfolio"/>
   </a>
 </p>
